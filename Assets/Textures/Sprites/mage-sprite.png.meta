@@ -1,7 +1,82 @@
 fileFormatVersion: 2
 guid: 56b2465b58d4ae641894b873024c6069
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -4971988223408992403
+    second: mage-sprite_0
+  - first:
+      213: 3752992321564000397
+    second: mage-sprite_1
+  - first:
+      213: -6893946817486901557
+    second: mage-sprite_2
+  - first:
+      213: -6799327921975757534
+    second: mage-sprite_3
+  - first:
+      213: 2594016940275219005
+    second: mage-sprite_4
+  - first:
+      213: -5533642236395646680
+    second: mage-sprite_5
+  - first:
+      213: 2639187129558573178
+    second: mage-sprite_6
+  - first:
+      213: 1096008377438192829
+    second: mage-sprite_7
+  - first:
+      213: -7691623843819621417
+    second: mage-sprite_8
+  - first:
+      213: -2252845580642632412
+    second: mage-sprite_9
+  - first:
+      213: -8271184355168611403
+    second: mage-sprite_10
+  - first:
+      213: -8049654123210763108
+    second: mage-sprite_11
+  - first:
+      213: -55295211511352387
+    second: mage-sprite_12
+  - first:
+      213: -1479554872668490461
+    second: mage-sprite_13
+  - first:
+      213: 6202376474275068008
+    second: mage-sprite_14
+  - first:
+      213: 2200210801763527710
+    second: mage-sprite_15
+  - first:
+      213: -493990418157992214
+    second: mage-sprite_16
+  - first:
+      213: -1539513598274638218
+    second: mage-sprite_17
+  - first:
+      213: 645608811487237536
+    second: mage-sprite_18
+  - first:
+      213: -1597324869928234520
+    second: mage-sprite_19
+  - first:
+      213: 5711221766270521267
+    second: mage-sprite_20
+  - first:
+      213: -5207128967157942033
+    second: mage-sprite_21
+  - first:
+      213: -7334904478095601091
+    second: mage-sprite_22
+  - first:
+      213: -2030046028758721043
+    second: mage-sprite_23
+  - first:
+      213: 6144558086199526887
+    second: mage-sprite_24
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -31,7 +106,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
+    filterMode: 0
     aniso: -1
     mipBias: -100
     wrapU: 1
@@ -40,7 +115,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -70,9 +145,525 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: mage-sprite_0
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 315
+        width: 33
+        height: 54
+      alignment: 9
+      pivot: {x: 0.31911764, y: 0.67753434}
+      border: {x: 1, y: 2, z: 13, w: 6}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6f0844bd03fffab0800000000000000
+      internalID: -4971988223408992403
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mage-sprite_1
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 315
+        width: 33
+        height: 54
+      alignment: 9
+      pivot: {x: 0.31629828, y: 0.67836845}
+      border: {x: 1, y: 2, z: 13, w: 6}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d80479bd1ae451430800000000000000
+      internalID: 3752992321564000397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mage-sprite_2
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 316
+        width: 37
+        height: 54
+      alignment: 9
+      pivot: {x: 0.41117942, y: 0.65890956}
+      border: {x: 4, y: 3, z: 11, w: 7}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bce224b25e7c350a0800000000000000
+      internalID: -6893946817486901557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mage-sprite_3
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 316
+        width: 44
+        height: 54
+      alignment: 9
+      pivot: {x: 0.44605705, y: 0.65214705}
+      border: {x: 10, y: 3, z: 12, w: 7}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2257d33874fe3a1a0800000000000000
+      internalID: -6799327921975757534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mage-sprite_4
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 258
+        width: 36
+        height: 55
+      alignment: 9
+      pivot: {x: 0.7325044, y: 0.6442122}
+      border: {x: 16, y: 2, z: 2, w: 8}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3a337ad9accff320800000000000000
+      internalID: 2594016940275219005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mage-sprite_5
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 258
+        width: 36
+        height: 55
+      alignment: 9
+      pivot: {x: 0.7400627, y: 0.646061}
+      border: {x: 16, y: 2, z: 2, w: 8}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8211a8954bd8433b0800000000000000
+      internalID: -5533642236395646680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mage-sprite_6
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 258
+        width: 32
+        height: 55
+      alignment: 9
+      pivot: {x: 0.6676016, y: 0.64721346}
+      border: {x: 10, y: 2, z: 2, w: 8}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a702f1916b640a420800000000000000
+      internalID: 2639187129558573178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mage-sprite_7
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 258
+        width: 34
+        height: 55
+      alignment: 9
+      pivot: {x: 0.6625613, y: 0.64412344}
+      border: {x: 11, y: 2, z: 3, w: 8}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db44e08ffcdc53f00800000000000000
+      internalID: 1096008377438192829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mage-sprite_8
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 198
+        width: 21
+        height: 58
+      alignment: 9
+      pivot: {x: 0.3339999, y: 0.6182777}
+      border: {x: 1, y: 2, z: 9, w: 11}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d3f433bddcd14590800000000000000
+      internalID: -7691623843819621417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mage-sprite_9
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 198
+        width: 21
+        height: 58
+      alignment: 9
+      pivot: {x: 0.32639167, y: 0.6169773}
+      border: {x: 1, y: 2, z: 9, w: 11}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42dbcf761e84cb0e0800000000000000
+      internalID: -2252845580642632412
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mage-sprite_10
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 197
+        width: 23
+        height: 59
+      alignment: 9
+      pivot: {x: 0.34554723, y: 0.62949514}
+      border: {x: 2, y: 3, z: 10, w: 11}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b3186ec6a9d63d80800000000000000
+      internalID: -8271184355168611403
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mage-sprite_11
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 198
+        width: 25
+        height: 57
+      alignment: 9
+      pivot: {x: 0.3189862, y: 0.62949413}
+      border: {x: 2, y: 2, z: 12, w: 10}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c94934d4932e94090800000000000000
+      internalID: -8049654123210763108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mage-sprite_12
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 138
+        width: 21
+        height: 57
+      alignment: 9
+      pivot: {x: 0.6594903, y: 0.6317002}
+      border: {x: 9, y: 1, z: 1, w: 10}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db3f5105c4d8b3ff0800000000000000
+      internalID: -55295211511352387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mage-sprite_13
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 137
+        width: 20
+        height: 58
+      alignment: 9
+      pivot: {x: 0.6453255, y: 0.6196547}
+      border: {x: 8, y: 2, z: 1, w: 11}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32575ecaea0977be0800000000000000
+      internalID: -1479554872668490461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mage-sprite_14
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 137
+        width: 25
+        height: 58
+      alignment: 9
+      pivot: {x: 0.5803339, y: 0.60702753}
+      border: {x: 6, y: 2, z: 4, w: 11}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 868b760ba84431650800000000000000
+      internalID: 6202376474275068008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mage-sprite_15
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 138
+        width: 22
+        height: 55
+      alignment: 9
+      pivot: {x: 0.60788655, y: 0.6128654}
+      border: {x: 5, y: 1, z: 1, w: 9}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1ca7162118b88e10800000000000000
+      internalID: 2200210801763527710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mage-sprite_16
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 75
+        width: 51
+        height: 53
+      alignment: 9
+      pivot: {x: 0.3854423, y: 0.70669025}
+      border: {x: 9, y: 2, z: 18, w: 4}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae60f3bf45ef429f0800000000000000
+      internalID: -493990418157992214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mage-sprite_17
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 76
+        width: 47
+        height: 52
+      alignment: 9
+      pivot: {x: 0.3795773, y: 0.7036431}
+      border: {x: 6, y: 3, z: 18, w: 5}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67ee4fff98c82aae0800000000000000
+      internalID: -1539513598274638218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mage-sprite_18
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 76
+        width: 33
+        height: 58
+      alignment: 9
+      pivot: {x: 0.33310908, y: 0.6213741}
+      border: {x: 5, y: 1, z: 17, w: 11}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a51f802bc9a5f800800000000000000
+      internalID: 645608811487237536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mage-sprite_19
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 76
+        width: 51
+        height: 49
+      alignment: 9
+      pivot: {x: 0.41189247, y: 0.7332362}
+      border: {x: 15, y: 1, z: 25, w: 2}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e1d7096e7925d9e0800000000000000
+      internalID: -1597324869928234520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mage-sprite_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 14
+        width: 46
+        height: 51
+      alignment: 9
+      pivot: {x: 0.706391, y: 0.70405585}
+      border: {x: 20, y: 2, z: 5, w: 4}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3bf8804efe5524f40800000000000000
+      internalID: 5711221766270521267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mage-sprite_21
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 14
+        width: 46
+        height: 51
+      alignment: 9
+      pivot: {x: 0.642886, y: 0.7004759}
+      border: {x: 17, y: 3, z: 8, w: 4}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe877ecfacf8cb7b0800000000000000
+      internalID: -5207128967157942033
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mage-sprite_22
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 14
+        width: 33
+        height: 58
+      alignment: 9
+      pivot: {x: 0.6662029, y: 0.6197886}
+      border: {x: 17, y: 1, z: 5, w: 11}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3290b93d3f253a90800000000000000
+      internalID: -7334904478095601091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mage-sprite_23
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 14
+        width: 52
+        height: 49
+      alignment: 9
+      pivot: {x: 0.5955831, y: 0.7341087}
+      border: {x: 26, y: 1, z: 15, w: 2}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dedd42a74e3d3d3e0800000000000000
+      internalID: -2030046028758721043
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
