@@ -7,6 +7,7 @@ public class PlayerControls : MonoBehaviour
 {
     private Rigidbody2D rb;
     private Animator anim;
+    private CharacterCombat combat;
 
     public KeyCode moveUp;
     public KeyCode moveDown;
@@ -25,6 +26,7 @@ public class PlayerControls : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        combat = GetComponent<CharacterCombat>();
     }
 
 
@@ -81,6 +83,7 @@ public class PlayerControls : MonoBehaviour
         if (striking)
         {
             newAnimType = "strike";
+            combat.strike((lastAnimDirection != newAnimDirection) ? newAnimDirection : lastAnimDirection);
         }
 
 
