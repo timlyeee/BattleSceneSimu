@@ -397,6 +397,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 5009901844213067429, guid: 7a9483de5fd2bcd4b8091ff434feb08e,
+        type: 3}
+      propertyPath: m_TagString
+      value: watermelon
+      objectReference: {fileID: 0}
     - target: {fileID: 5009901845674906725, guid: 7a9483de5fd2bcd4b8091ff434feb08e,
         type: 3}
       propertyPath: m_Layer
@@ -492,6 +497,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 5009901844213067429, guid: 7a9483de5fd2bcd4b8091ff434feb08e,
+        type: 3}
+      propertyPath: m_TagString
+      value: watermelon
+      objectReference: {fileID: 0}
     - target: {fileID: 5009901845674906725, guid: 7a9483de5fd2bcd4b8091ff434feb08e,
         type: 3}
       propertyPath: m_Layer
@@ -580,6 +590,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5009901844213067429, guid: 7a9483de5fd2bcd4b8091ff434feb08e,
+        type: 3}
+      propertyPath: m_TagString
+      value: watermelon
       objectReference: {fileID: 0}
     - target: {fileID: 5009901845674906725, guid: 7a9483de5fd2bcd4b8091ff434feb08e,
         type: 3}
@@ -867,6 +882,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5009901844213067429, guid: 7a9483de5fd2bcd4b8091ff434feb08e,
+        type: 3}
+      propertyPath: m_TagString
+      value: watermelon
       objectReference: {fileID: 0}
     - target: {fileID: 5009901844213067431, guid: 7a9483de5fd2bcd4b8091ff434feb08e,
         type: 3}
