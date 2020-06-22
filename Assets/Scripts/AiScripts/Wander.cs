@@ -27,7 +27,7 @@ public class Wander : MonoBehaviour
         if (Vector3.Distance(targetPosition, transform.position) < targetPositionTolerance) {
             GetNextPosition();
         }
-        move2nextPosition();
+        //move2nextPosition();
 
     }
     void GetNextPosition()

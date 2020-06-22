@@ -63,13 +63,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\AgentController.cs" />
+    <Compile Include="Assets\Scripts\AiScripts\EnemyMovement.cs" />
+    <Compile Include="Assets\Scripts\AiScripts\PlayerDetect.cs" />
+    <Compile Include="Assets\Scripts\AiScripts\Wander.cs" />
     <Compile Include="Assets\Scripts\AnimationController.cs" />
     <Compile Include="Assets\Scripts\CameraBehaviour.cs" />
     <Compile Include="Assets\Scripts\CharacterCombat.cs" />
-    <Compile Include="Assets\Scripts\EnemyMovement.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\PlayerControls.cs" />
-    <Compile Include="Assets\Scripts\Wander.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>D:/GameDev/BattleSceneSimu/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
