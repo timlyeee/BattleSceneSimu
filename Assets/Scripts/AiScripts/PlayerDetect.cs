@@ -120,15 +120,15 @@ public class PlayerDetect : MonoBehaviour
         {
             //The vector which aims to the player
             Vector3 vec = new Vector3(Target.transform.position.x - this.transform.position.x, Target.transform.position.y - this.transform.position.y, 0);
-            RaycastHit2D hitInfo = Physics2D.Raycast(this.transform.position, vec, PerceptionRadius * 1.5f, LayerMask.GetMask("collider"));
+            RaycastHit2D hitInfo = Physics2D.Raycast(this.transform.position, vec, PerceptionRadius * 1.5f, LayerMask.GetMask("player"));
 
             if (hitInfo.collider != null)
             {
-                Debug.Log("The name of target is" + hitInfo.collider.gameObject);//name os W2.
+                // Debug.Log("The name of target is" + hitInfo.collider.gameObject);//name os W2.
 
                 if (hitInfo.collider.gameObject.CompareTag("Player"))
                 {
-                    Debug.Log("Hit!");
+                    // Debug.Log("Hit!");
                     isRayHit = true;
                 }
                 else
@@ -136,7 +136,7 @@ public class PlayerDetect : MonoBehaviour
 
             }
 
-            Debug.DrawLine(this.transform.position, hitInfo.point, Color.red,1);
+            // Debug.DrawLine(this.transform.position, hitInfo.point, Color.red,1);
             if (AngleDiff * 2 < (isAlert ? ViewAngle * 1.5 : ViewAngle))
             {
                 isInView = true;
@@ -144,14 +144,14 @@ public class PlayerDetect : MonoBehaviour
             }
             else
                 isInView = false;
-            Debug.Log("Is in view?" + isInView);
+            // Debug.Log("Is in view?" + isInView);
         }
         
     }
     void StateSwitcher()
     {
         Vector3 direction;
-        Debug.Log("The state now is" + state);
+        // Debug.Log("The state now is" + state);
         switch (state)
         {
             //Normal case, rotate and move as usual
@@ -180,7 +180,7 @@ public class PlayerDetect : MonoBehaviour
                 targetPosition = Target.transform.position;
                 direction = targetPosition - transform.position;
                 transform.Translate(movementSpeed*2 * direction.normalized);
-                Debug.Log("Is RayHit?" + isRayHit);
+                // Debug.Log("Is RayHit?" + isRayHit);
                 if (!isRayHit)
                 {
                     isWait = true;
@@ -217,7 +217,7 @@ public class PlayerDetect : MonoBehaviour
                 direction = targetPosition - transform.position;
                 transform.Translate(movementSpeed * direction.normalized / 2);
                 time_alert += Time.deltaTime;
-                Debug.Log("Alert time" + time_alert);
+                // Debug.Log("Alert time" + time_alert);
                 if (time_alert >= AlertTime)
                 {
                     //Quit alert mode
@@ -250,7 +250,7 @@ public class PlayerDetect : MonoBehaviour
             Target = collision.gameObject;
             isAlert = true;
             
-            Debug.Log("The target gets is " + Target.name);
+            // Debug.Log("The target gets is " + Target.name);
         }
     }
     private void OnTriggerStay2D(Collider2D collision)
@@ -260,7 +260,7 @@ public class PlayerDetect : MonoBehaviour
             if (Target == null)
             {
                 Target = collision.gameObject;
-                Debug.Log("The target in stay gets is " + Target.name);
+                // Debug.Log("The target in stay gets is " + Target.name);
                 isAlert = true;
                 
             }
@@ -271,7 +271,7 @@ public class PlayerDetect : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             
-            Debug.Log("The target getting out is " + Target.name);
+            // Debug.Log("The target getting out is " + Target.name);
             Target = null;
             isAlert = false;
         
