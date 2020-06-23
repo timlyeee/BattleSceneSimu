@@ -18,8 +18,10 @@ public class PlayerDetect : MonoBehaviour
     private Vector3 targetPosition;
     public float movementSpeed = 0.5f;
     private float rotationSpeed = 2.0f;
-    float targetPositionTolerance = 1.0f;
+    public float targetPositionTolerance = 0.5f;
     private Rigidbody2D rb;
+    public Animator anim;
+    private CharacterCombat combat;
 
     private GameObject Target=null;
     private float TargetAngle = 0;
@@ -49,6 +51,7 @@ public class PlayerDetect : MonoBehaviour
         cc2d.radius = PerceptionRadius;
         targetPosition = new Vector3(Random.Range(-8, 8), Random.Range(-6, 6), 0);
         rb = GetComponent<Rigidbody2D>();
+        combat = GetComponent<CharacterCombat>();
     }
 
     // Update is called once per frame
@@ -161,6 +164,7 @@ public class PlayerDetect : MonoBehaviour
                 direction = targetPosition - transform.position;
                 //transform.Translate(movementSpeed * direction.normalized);
                 rb.AddForce(movementSpeed * direction.normalized);
+                anim.SetBool("walking", true);
                 if (Vector3.Distance(targetPosition, transform.position) < targetPositionTolerance)
                 {
                     targetPosition = new Vector3(Random.Range(-8, 8), Random.Range(-6, 6), 0);
@@ -183,7 +187,18 @@ public class PlayerDetect : MonoBehaviour
                 targetPosition = Target.transform.position;
                 direction = targetPosition - transform.position;
                 //transform.Translate(movementSpeed *2 * direction.normalized);
-                rb.AddForce(movementSpeed * 2 * direction.normalized);
+
+                // decide wether to get closer or attack:
+                if (Vector3.Distance(targetPosition, transform.position) > targetPositionTolerance) {
+                    // get closer:
+                    rb.AddForce(movementSpeed * 2 * direction.normalized);
+                    walk();
+                } else { // attack:
+                    combat.strike();
+                    strike();
+                }
+
+
                 // Debug.Log("Is RayHit?" + isRayHit);
                 if (!isRayHit)
                 {
@@ -201,6 +216,7 @@ public class PlayerDetect : MonoBehaviour
                 direction = targetPosition - transform.position;
                 //transform.Translate(movementSpeed * direction.normalized/2);
                 rb.AddForce(movementSpeed * direction.normalized * 0.5f);
+                walk();
                 time_wait += Time.deltaTime * 1;
                 if(time_wait >= WaitTime)
                 {
@@ -222,6 +238,7 @@ public class PlayerDetect : MonoBehaviour
                 direction = targetPosition - transform.position;
                 //transform.Translate(movementSpeed * direction.normalized / 2);
                 rb.AddForce(movementSpeed * direction.normalized * 0.5f);
+                walk();
                 time_alert += Time.deltaTime;
                 // Debug.Log("Alert time" + time_alert);
                 if (time_alert >= AlertTime)
@@ -236,6 +253,7 @@ public class PlayerDetect : MonoBehaviour
                     direction = targetPosition - transform.position;
                     //transform.Translate(movementSpeed * direction.normalized);
                     rb.AddForce(movementSpeed * direction.normalized);
+                    walk();
                 }
                 if(isRayHit && isInView)
                 {
@@ -290,5 +308,15 @@ public class PlayerDetect : MonoBehaviour
 
         }
     }
-   
+
+    // --- animations ----------------------------------------------------------------
+    private void walk () {
+        if (!anim.GetBool("walking")) anim.SetBool("walking", true);
+        if (anim.GetBool("striking")) anim.SetBool("striking", false);
+    }
+
+    private void strike () {
+        if (anim.GetBool("walking")) anim.SetBool("walking", false);
+        if (!anim.GetBool("striking")) anim.SetBool("striking", true);
+    }
 }

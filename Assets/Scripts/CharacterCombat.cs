@@ -5,6 +5,7 @@ using UnityEngine;
 public class CharacterCombat : MonoBehaviour
 {
     public int hitPoints = 3;
+    private int oldValue = 3;
     public LayerMask targets;
 
     public float range = 0.5f;
@@ -29,9 +30,13 @@ public class CharacterCombat : MonoBehaviour
         if (hitPoints <= 0) {
             Destroy(gameObject);
         }
+        if (hitPoints != oldValue) {
+            Debug.Log("i have " + hitPoints + "hp left");
+            oldValue = hitPoints;
+        }
     }
 
-    public void strike (string direction = "") {
+    public bool strike (string direction = "") {
         // Hit an area and deal damage.
         // (Player gets to strike in a specific direction).
 
@@ -45,13 +50,14 @@ public class CharacterCombat : MonoBehaviour
 
             foreach (Collider2D hit in objectsHit(offset)) {
                 if (!hit.isTrigger) { // don't use script triggers as hitboxes
-                    Debug.Log(hit.name);
                     hit.GetComponent<CharacterCombat>().hitPoints--;
                 }
             } 
             nextAttackIn = attackDelay;
+            return true;
         } else {
             nextAttackIn -= Time.deltaTime;
+            return false;
         }
     }
 
