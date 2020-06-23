@@ -11,7 +11,7 @@ public class CharacterCombat : MonoBehaviour
     public int damage = 1;
 
     public float attackDelay = 0.5f;
-    public float nextAttackIn = 0.0f;
+    private float nextAttackIn = 0.0f;
 
     private Dictionary<string, Vector2> DirectionnalStrikeOffsets = new Dictionary<string, Vector2>();
 
@@ -44,11 +44,10 @@ public class CharacterCombat : MonoBehaviour
             }
 
             foreach (Collider2D hit in objectsHit(offset)) {
-                Debug.Log("------------");
-                Debug.Log(hit);
-                Debug.Log(hit.GetComponent<CharacterCombat>());
-                Debug.Log(hit.GetComponent<CharacterCombat>().hitPoints);
-                hit.GetComponent<CharacterCombat>().hitPoints--;
+                if (!hit.isTrigger) { // don't use script triggers as hitboxes
+                    Debug.Log(hit.name);
+                    hit.GetComponent<CharacterCombat>().hitPoints--;
+                }
             } 
             nextAttackIn = attackDelay;
         } else {
