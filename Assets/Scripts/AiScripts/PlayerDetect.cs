@@ -16,9 +16,10 @@ public class PlayerDetect : MonoBehaviour
 
     //Paras for wander
     private Vector3 targetPosition;
-    private float movementSpeed = 0.01f;
+    public float movementSpeed = 0.5f;
     private float rotationSpeed = 2.0f;
     float targetPositionTolerance = 1.0f;
+    private Rigidbody2D rb;
 
     private GameObject Target=null;
     private float TargetAngle = 0;
@@ -47,6 +48,7 @@ public class PlayerDetect : MonoBehaviour
         cc2d = this.GetComponent<CircleCollider2D>();
         cc2d.radius = PerceptionRadius;
         targetPosition = new Vector3(Random.Range(-8, 8), Random.Range(-6, 6), 0);
+        rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -69,7 +71,7 @@ public class PlayerDetect : MonoBehaviour
         /*float eularAngle = (transform.rotation.ToEulerAngles() * 180 / Mathf.PI).z;
         Vector3 dir = new Vector3(Mathf.Cos(eularAngle), Mathf.Sin(eularAngle), 0);
         
-        this.transform.Translate(dir.normalized*Time.deltaTime);
+        this.//transform.Translate(dir.normalized*Time.deltaTime);
         */
     }
     void CalculateAngle()
@@ -157,7 +159,8 @@ public class PlayerDetect : MonoBehaviour
             //Normal case, rotate and move as usual
             case 0:
                 direction = targetPosition - transform.position;
-                transform.Translate(movementSpeed * direction.normalized);
+                //transform.Translate(movementSpeed * direction.normalized);
+                rb.AddForce(movementSpeed * direction.normalized);
                 if (Vector3.Distance(targetPosition, transform.position) < targetPositionTolerance)
                 {
                     targetPosition = new Vector3(Random.Range(-8, 8), Random.Range(-6, 6), 0);
@@ -179,7 +182,8 @@ public class PlayerDetect : MonoBehaviour
                 if(Target)
                 targetPosition = Target.transform.position;
                 direction = targetPosition - transform.position;
-                transform.Translate(movementSpeed*2 * direction.normalized);
+                //transform.Translate(movementSpeed *2 * direction.normalized);
+                rb.AddForce(movementSpeed * 2 * direction.normalized);
                 // Debug.Log("Is RayHit?" + isRayHit);
                 if (!isRayHit)
                 {
@@ -195,7 +199,8 @@ public class PlayerDetect : MonoBehaviour
                 targetPosition = Target.transform.position;
                 
                 direction = targetPosition - transform.position;
-                transform.Translate(movementSpeed * direction.normalized/2);
+                //transform.Translate(movementSpeed * direction.normalized/2);
+                rb.AddForce(movementSpeed * direction.normalized * 0.5f);
                 time_wait += Time.deltaTime * 1;
                 if(time_wait >= WaitTime)
                 {
@@ -215,7 +220,8 @@ public class PlayerDetect : MonoBehaviour
                 if (Target)
                     targetPosition = Target.transform.position;
                 direction = targetPosition - transform.position;
-                transform.Translate(movementSpeed * direction.normalized / 2);
+                //transform.Translate(movementSpeed * direction.normalized / 2);
+                rb.AddForce(movementSpeed * direction.normalized * 0.5f);
                 time_alert += Time.deltaTime;
                 // Debug.Log("Alert time" + time_alert);
                 if (time_alert >= AlertTime)
@@ -228,7 +234,8 @@ public class PlayerDetect : MonoBehaviour
                     //Back to normal : Get a random target position which is inside the map
                     targetPosition = new Vector3(Random.Range(-8, 8), Random.Range(-6, 6), 0);
                     direction = targetPosition - transform.position;
-                    transform.Translate(movementSpeed * direction.normalized);
+                    //transform.Translate(movementSpeed * direction.normalized);
+                    rb.AddForce(movementSpeed * direction.normalized);
                 }
                 if(isRayHit && isInView)
                 {
