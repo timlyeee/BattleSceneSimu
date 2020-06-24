@@ -359,30 +359,38 @@ public class PlayerDetect : MonoBehaviour
             new Vector3(colliderBox.bounds.max.x,colliderBox.bounds.max.y,0.0f)
         };
 
-        RaycastHit2D obstacleCheck = Physics2D.Raycast(points[0], waypoint - points[0], PerceptionRadius, LayerMask.GetMask("props"));
+        Vector3[] waypointOffsets = new Vector3[] {
+            new Vector3(waypoint.x - colliderBox.bounds.extents.x, waypoint.y - colliderBox.bounds.extents.y,0.0f),
+            new Vector3(waypoint.x - colliderBox.bounds.extents.x, waypoint.y + colliderBox.bounds.extents.y,0.0f),
+            new Vector3(waypoint.x + colliderBox.bounds.extents.x, waypoint.y - colliderBox.bounds.extents.y,0.0f),
+            new Vector3(waypoint.x + colliderBox.bounds.extents.x, waypoint.y + colliderBox.bounds.extents.y,0.0f)
+        };
+
+        RaycastHit2D obstacleCheck = Physics2D.Raycast(points[0], waypointOffsets[0] - points[0], PerceptionRadius, LayerMask.GetMask("props"));
+        Vector3 origin = points[0];
+
 
         for (int i = 1; i < 4; ++i) {
             // check from each corner of collider:
-            RaycastHit2D obstacle = Physics2D.Raycast(points[i], waypoint - points[i], PerceptionRadius, LayerMask.GetMask("props"));
+            RaycastHit2D obstacle = Physics2D.Raycast(points[i], waypointOffsets[i] - points[i], PerceptionRadius, LayerMask.GetMask("props"));
             if (obstacle.collider != null && (obstacleCheck.collider == null || obstacle.distance < obstacleCheck.distance)) {
                 obstacleCheck = obstacle; // keep the hit with smallest distance
+                origin = points[i];
             }
         }
 
         if (!obstacleCheck.collider) return null; // no obstacle in view
         // Debug.Log("obstacle found: " + obstacleCheck.collider.name);
-
-        Vector3 closestPoint = colliderBox.ClosestPoint(obstacleCheck.point);
         
         float distanceDelta = Vector3.Distance(transform.position, waypoint) - obstacleCheck.distance;
         if (distanceDelta < 0.0f)  return null; // obstacle is further away than waypoint
 
         // Determine new, altered direction:
-        Vector3 direction = waypoint - transform.position;
+        Vector3 direction = waypoint - origin;
 
         if (deviationTimeout - Time.deltaTime <= 0.0f || obstacleCheck.collider.name != obstacleName) {
             // commit to a direction for a while (from which side to avoid the obstacle)
-            float angleFromHitToObstacleCenter = Vector3.SignedAngle(direction, transform.position - obstacleCheck.collider.transform.position, Vector3.up);
+            float angleFromHitToObstacleCenter = Vector3.SignedAngle(direction, obstacleCheck.collider.transform.position - origin, Vector3.up);
             deviationIsPositive = angleFromHitToObstacleCenter > 0;
             deviationTimeout = 3.0f;
         } else {
