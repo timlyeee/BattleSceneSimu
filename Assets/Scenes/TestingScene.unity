@@ -922,7 +922,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -724604153
   m_SortingLayer: 1
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -959661532014979807, guid: 18a3ea2fcb428f4419943b6d5d239349,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1107,8 +1107,7 @@ GameObject:
   m_Component:
   - component: {fileID: 449675995}
   - component: {fileID: 449675994}
-  - component: {fileID: 449675996}
-  m_Layer: 11
+  m_Layer: 10
   m_Name: fence2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1173,30 +1172,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 449675993}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.6906567, y: 0.08034775, z: 0}
+  m_LocalPosition: {x: -2.1357183, y: -0.29096773, z: 33.053913}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 2044430612}
+  m_Father: {fileID: 2106755414}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!68 &449675996
-EdgeCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 449675993}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_EdgeRadius: 0
-  m_Points:
-  - {x: -0.23, y: -0.3}
-  - {x: 0.32, y: -0.25}
 --- !u!1 &459261641
 GameObject:
   m_ObjectHideFlags: 0
@@ -1488,7 +1469,7 @@ Transform:
   m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_Children: []
   m_Father: {fileID: 2044430612}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!68 &673140161
 EdgeCollider2D:
@@ -1506,11 +1487,20 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
   m_Points:
-  - {x: -0.27487516, y: 0.08548828}
+  - {x: -0.31634125, y: -0.025087655}
+  - {x: -0.32484707, y: 0.013188621}
+  - {x: -0.2998241, y: 0.06961255}
+  - {x: -0.26351675, y: 0.10473656}
   - {x: -0.20702958, y: 0.1375494}
-  - {x: -0.0057673454, y: 0.17469552}
-  - {x: 0.20217252, y: 0.13153192}
-  - {x: 0.28596878, y: 0.06631863}
+  - {x: -0.10638206, y: 0.1627975}
+  - {x: -0.004704158, y: 0.17150581}
+  - {x: 0.1003445, y: 0.16330346}
+  - {x: 0.21599469, y: 0.12834226}
+  - {x: 0.27007693, y: 0.08982917}
+  - {x: 0.31136513, y: 0.042235933}
+  - {x: 0.32148442, y: 0.010899822}
+  - {x: 0.32080698, y: -0.0030374925}
+  - {x: 0.315739, y: -0.041067563}
 --- !u!212 &673140162
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1773,30 +1763,13 @@ GameObject:
   m_Component:
   - component: {fileID: 724430897}
   - component: {fileID: 724430896}
-  - component: {fileID: 724430895}
-  m_Layer: 11
+  m_Layer: 10
   m_Name: boulder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!70 &724430895
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 724430894}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.025, y: -0.14}
-  m_Size: {x: 0.85, y: 0.5}
-  m_Direction: 1
 --- !u!212 &724430896
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1855,11 +1828,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 724430894}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.490406, y: 0.33967686, z: 0}
+  m_LocalPosition: {x: -0.9354677, y: -0.031638622, z: 33.053913}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 2044430612}
-  m_RootOrder: 4
+  m_Father: {fileID: 2106755414}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &724463350
 GameObject:
@@ -2276,32 +2249,13 @@ GameObject:
   m_Component:
   - component: {fileID: 823304653}
   - component: {fileID: 823304652}
-  - component: {fileID: 823304651}
-  m_Layer: 11
+  m_Layer: 10
   m_Name: fence1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!68 &823304651
-EdgeCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 823304650}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_EdgeRadius: 0
-  m_Points:
-  - {x: -0.3, y: -0.3}
-  - {x: 0.35, y: -0.18}
 --- !u!212 &823304652
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2360,10 +2314,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 823304650}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.0586567, y: 0.13334775, z: 0}
+  m_LocalPosition: {x: -1.5037184, y: -0.23796773, z: 33.053913}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 2044430612}
+  m_Father: {fileID: 2106755414}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &839478280
@@ -2782,7 +2736,7 @@ GameObject:
   - component: {fileID: 976992650}
   - component: {fileID: 976992651}
   - component: {fileID: 976992652}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: sign
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2801,7 +2755,7 @@ Transform:
   m_LocalScale: {x: 0.35, y: 0.35, z: 0.35}
   m_Children: []
   m_Father: {fileID: 2044430612}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &976992651
 SpriteRenderer:
@@ -2841,7 +2795,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -724604153
   m_SortingLayer: 1
-  m_SortingOrder: 3
+  m_SortingOrder: 7
   m_Sprite: {fileID: 21300000, guid: 5600afcdfc4b6694281777b7fb0fb91f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2869,8 +2823,14 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
   m_Points:
-  - {x: -0.29227853, y: 0.072900355}
-  - {x: 0.2603846, y: 0.16858225}
+  - {x: -0.053052053, y: 0.3326391}
+  - {x: -0.29831052, y: 0.29725617}
+  - {x: -0.2661424, y: -0.033374388}
+  - {x: -0.041332077, y: -0.021614902}
+  - {x: 0.010291679, y: -0.28857934}
+  - {x: 0.06086503, y: -0.3007421}
+  - {x: 0.032423735, y: 0.34489772}
+  - {x: -0.056309532, y: 0.33719587}
 --- !u!1 &978225585
 GameObject:
   m_ObjectHideFlags: 0
@@ -3053,12 +3013,12 @@ PrefabInstance:
     - target: {fileID: 2651565011541183004, guid: f7b7ad61d020ce5468386d130f62a3a5,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.5888503
+      value: 0.03
       objectReference: {fileID: 0}
     - target: {fileID: 2651565011541183004, guid: f7b7ad61d020ce5468386d130f62a3a5,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.23
+      value: -0.984
       objectReference: {fileID: 0}
     - target: {fileID: 2651565011541183004, guid: f7b7ad61d020ce5468386d130f62a3a5,
         type: 3}
@@ -3431,7 +3391,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1245455455}
   - component: {fileID: 1245455456}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Forest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5291,7 +5251,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2044430612}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Props
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5309,14 +5269,75 @@ Transform:
   m_LocalPosition: {x: 3.0816565, y: -0.39634776, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 823304653}
-  - {fileID: 449675995}
+  - {fileID: 2106755414}
   - {fileID: 673140160}
   - {fileID: 976992650}
-  - {fileID: 724430897}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2106755413
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2106755414}
+  - component: {fileID: 2106755415}
+  m_Layer: 10
+  m_Name: fencesAndBoulder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2106755414
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2106755413}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -3.5549383, y: 0.37131548, z: -33.053913}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 823304653}
+  - {fileID: 449675995}
+  - {fileID: 724430897}
+  m_Father: {fileID: 2044430612}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!68 &2106755415
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2106755413}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -2.3540468, y: -0.5899239}
+  - {x: -1.7764363, y: -0.5478381}
+  - {x: -1.3754082, y: -0.4729181}
+  - {x: -1.1618109, y: -0.45711944}
+  - {x: -1.1328936, y: -0.38978493}
+  - {x: -0.9339957, y: -0.4394398}
+  - {x: -0.6933651, y: -0.39841273}
+  - {x: -0.5368147, y: -0.29674304}
+  - {x: -0.47607565, y: -0.15576643}
+  - {x: -0.5379429, y: -0.009727746}
+  - {x: -1.2353773, y: -0.005102873}
+  - {x: -1.3327985, y: -0.06844792}
+  - {x: -1.3799772, y: -0.46675313}
 --- !u!1 &2111146340
 GameObject:
   m_ObjectHideFlags: 0

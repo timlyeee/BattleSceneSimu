@@ -10,8 +10,12 @@ public class PlayerDetect : MonoBehaviour
 {
     //Movement control parameters
     public int AngleSpeed = 90;
+    private bool deviationIsPositive;
+    private float deviationTimeout = 0.0f;
+    private string obstacleName = "";
 
     CircleCollider2D cc2d;
+    BoxCollider2D colliderBox;
     public float PerceptionRadius = 2f;
 
     //Paras for wander
@@ -52,6 +56,7 @@ public class PlayerDetect : MonoBehaviour
         targetPosition = new Vector3(Random.Range(-8, 8), Random.Range(-6, 6), 0);
         rb = GetComponent<Rigidbody2D>();
         combat = GetComponent<CharacterCombat>();
+        colliderBox = GetComponent<BoxCollider2D>();
     }
 
     // Update is called once per frame
@@ -156,6 +161,9 @@ public class PlayerDetect : MonoBehaviour
     void StateSwitcher()
     {
         Vector3 direction;
+        Vector3? alternativeDirection;
+        Vector3 normalizedDirection;
+
         // Debug.Log("The state now is" + state);
         switch (state)
         {
@@ -163,6 +171,8 @@ public class PlayerDetect : MonoBehaviour
             case 0:
                 direction = targetPosition - transform.position;
                 //transform.Translate(movementSpeed * direction.normalized);
+                alternativeDirection = checkObstacle(targetPosition);
+                normalizedDirection = (alternativeDirection != null) ? ((Vector3) alternativeDirection).normalized : direction.normalized;
                 rb.AddForce(movementSpeed * direction.normalized);
                 anim.SetBool("walking", true);
                 if (Vector3.Distance(targetPosition, transform.position) < targetPositionTolerance)
@@ -188,11 +198,17 @@ public class PlayerDetect : MonoBehaviour
                 direction = targetPosition - transform.position;
                 //transform.Translate(movementSpeed *2 * direction.normalized);
 
+     
                 // decide wether to get closer or attack:
                 if (Vector3.Distance(targetPosition, transform.position) > targetPositionTolerance) {
+                    // before moving, check for obstacles:
+                    alternativeDirection = checkObstacle(targetPosition);
+                    normalizedDirection = (alternativeDirection != null) ? ((Vector3) alternativeDirection).normalized : direction.normalized;
+                    
                     // get closer:
-                    rb.AddForce(movementSpeed * 2 * direction.normalized);
+                    rb.AddForce(movementSpeed * 2 * normalizedDirection);
                     walk();
+
                 } else { // attack:
                     combat.strike();
                     strike();
@@ -215,6 +231,8 @@ public class PlayerDetect : MonoBehaviour
                 
                 direction = targetPosition - transform.position;
                 //transform.Translate(movementSpeed * direction.normalized/2);
+                alternativeDirection = checkObstacle(targetPosition);
+                normalizedDirection = (alternativeDirection != null) ? ((Vector3) alternativeDirection).normalized : direction.normalized;
                 rb.AddForce(movementSpeed * direction.normalized * 0.5f);
                 walk();
                 time_wait += Time.deltaTime * 1;
@@ -237,6 +255,8 @@ public class PlayerDetect : MonoBehaviour
                     targetPosition = Target.transform.position;
                 direction = targetPosition - transform.position;
                 //transform.Translate(movementSpeed * direction.normalized / 2);
+                alternativeDirection = checkObstacle(targetPosition);
+                normalizedDirection = (alternativeDirection != null) ? ((Vector3) alternativeDirection).normalized : direction.normalized;
                 rb.AddForce(movementSpeed * direction.normalized * 0.5f);
                 walk();
                 time_alert += Time.deltaTime;
@@ -252,6 +272,8 @@ public class PlayerDetect : MonoBehaviour
                     targetPosition = new Vector3(Random.Range(-8, 8), Random.Range(-6, 6), 0);
                     direction = targetPosition - transform.position;
                     //transform.Translate(movementSpeed * direction.normalized);
+                    alternativeDirection = checkObstacle(targetPosition);
+                    normalizedDirection = (alternativeDirection != null) ? ((Vector3) alternativeDirection).normalized : direction.normalized;
                     rb.AddForce(movementSpeed * direction.normalized);
                     walk();
                 }
@@ -318,5 +340,63 @@ public class PlayerDetect : MonoBehaviour
     private void strike () {
         if (anim.GetBool("walking")) anim.SetBool("walking", false);
         if (!anim.GetBool("striking")) anim.SetBool("striking", true);
+    }
+
+    private void idle () {
+        if (anim.GetBool("walking")) anim.SetBool("walking", false);
+        if (anim.GetBool("striking")) anim.SetBool("striking", false);
+    }
+
+    // --- basic pathfinding ----------------------------------------------------------
+
+    private Vector3? checkObstacle (Vector3 waypoint) {
+        // check for obstacles in the way and return other direction if necessary
+        
+        Vector3[] points = new Vector3[] {
+            new Vector3(colliderBox.bounds.min.x,colliderBox.bounds.min.y,0.0f),
+            new Vector3(colliderBox.bounds.min.x,colliderBox.bounds.max.y,0.0f),
+            new Vector3(colliderBox.bounds.max.x,colliderBox.bounds.min.y,0.0f),
+            new Vector3(colliderBox.bounds.max.x,colliderBox.bounds.max.y,0.0f)
+        };
+
+        RaycastHit2D obstacleCheck = Physics2D.Raycast(points[0], waypoint - points[0], PerceptionRadius, LayerMask.GetMask("props"));
+
+        for (int i = 1; i < 4; ++i) {
+            // check from each corner of collider:
+            RaycastHit2D obstacle = Physics2D.Raycast(points[i], waypoint - points[i], PerceptionRadius, LayerMask.GetMask("props"));
+            if (obstacle.collider != null && (obstacleCheck.collider == null || obstacle.distance < obstacleCheck.distance)) {
+                obstacleCheck = obstacle; // keep the hit with smallest distance
+            }
+        }
+
+        if (!obstacleCheck.collider) return null; // no obstacle in view
+        // Debug.Log("obstacle found: " + obstacleCheck.collider.name);
+
+        Vector3 closestPoint = colliderBox.ClosestPoint(obstacleCheck.point);
+        
+        float distanceDelta = Vector3.Distance(transform.position, waypoint) - obstacleCheck.distance;
+        if (distanceDelta < 0.0f)  return null; // obstacle is further away than waypoint
+
+        // Determine new, altered direction:
+        Vector3 direction = waypoint - transform.position;
+
+        if (deviationTimeout - Time.deltaTime <= 0.0f || obstacleCheck.collider.name != obstacleName) {
+            // commit to a direction for a while (from which side to avoid the obstacle)
+            float angleFromHitToObstacleCenter = Vector3.SignedAngle(direction, transform.position - obstacleCheck.collider.transform.position, Vector3.up);
+            deviationIsPositive = angleFromHitToObstacleCenter > 0;
+            deviationTimeout = 3.0f;
+        } else {
+            deviationTimeout -= Time.deltaTime;
+        }
+        
+        Vector3 altDirection = Quaternion.AngleAxis(90, deviationIsPositive ? Vector3.left : Vector3.right) * direction;
+        float ratio = ((PerceptionRadius - obstacleCheck.distance) / PerceptionRadius);
+        Vector3 newDirection = Vector3.Cross(direction * ratio, altDirection * (1 - ratio));
+        // New direction is a mix of old direction and a 90 angle deviation from it.
+        // The nearer the obstacle, the bigger the deviation.
+        obstacleName = obstacleCheck.collider.name;
+        // Debug.Log("new direction found");
+
+        return newDirection;
     }
 }
