@@ -4,7 +4,7 @@ public class Wander : MonoBehaviour
     private Vector3 targetPosition;
 
     private float movementSpeed = 0.03f;
-    private float rotationSpeed = 2.0f;
+    //private float rotationSpeed = 2.0f;
     private float targetPositionTolerance = 3.0f;
     private float minX;
     private float maxX;

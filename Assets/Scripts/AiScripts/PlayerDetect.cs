@@ -17,7 +17,7 @@ public class PlayerDetect : MonoBehaviour
     //Paras for wander
     private Vector3 targetPosition;
     public float movementSpeed = 0.5f;
-    private float rotationSpeed = 2.0f;
+    //private float rotationSpeed = 2.0f;
     public float targetPositionTolerance = 0.5f;
     private Rigidbody2D rb;
     public Animator anim;
@@ -27,8 +27,8 @@ public class PlayerDetect : MonoBehaviour
     private float TargetAngle = 0;
     private float AngleDiff = 0;
     public float ViewAngle = 60f;//the angle of view
-    float MinAngle = 3f;
-    float SelfAngle = 0;
+    //float MinAngle = 3f;
+    //float SelfAngle = 0;
      
 
     private int state = 0;
