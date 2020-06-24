@@ -51,6 +51,9 @@ public class CharacterCombat : MonoBehaviour
             foreach (Collider2D hit in objectsHit(offset)) {
                 if (!hit.isTrigger) { // don't use script triggers as hitboxes
                     hit.GetComponent<CharacterCombat>().hitPoints--;
+                    Vector3 knockBackDirection = (hit.transform.position - transform.position).normalized;
+                    Debug.Log(hit.name + " was pushed back: " + knockBackDirection);
+                    hit.transform.position += (knockBackDirection * 0.1f);
                 }
             } 
             nextAttackIn = attackDelay;
