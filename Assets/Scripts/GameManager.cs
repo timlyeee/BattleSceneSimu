@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public CharacterCombat playerCombatManager;
     private static GameManager instance;
     public Transform enemy;
     public float spawnInterval = 10.0f;
@@ -27,13 +28,15 @@ public class GameManager : MonoBehaviour
     }
 
     void FixedUpdate () {
+        if (playerCombatManager.hitPoints <= 0) {
+            spawnDelay = float.PositiveInfinity; // stop spawns on gameover
+        };
         if (spawnDelay <= 0.0f) {
             for (int i = 0; i < spawnNumber; ++i) {
-                Instantiate(enemy, new Vector3(Random.Range(-10, 5), Random.Range(0, 12)), Quaternion.identity);
+                Instantiate(enemy, new Vector3(Random.Range(-10, 5), Random.Range(0, 5)), Quaternion.identity);
             }
             spawnDelay = spawnInterval;
-            spawnNumber += 3;
-            spawnInterval *= 0.9f;
+            spawnInterval *= 0.95f;
         } else {
             spawnDelay -= Time.deltaTime;
         }

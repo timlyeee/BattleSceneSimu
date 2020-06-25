@@ -17,8 +17,8 @@ GameObject:
   - component: {fileID: 6748152942410331032}
   - component: {fileID: 6748152942410331035}
   m_Layer: 9
-  m_Name: W2
-  m_TagString: Untagged
+  m_Name: enemyPaladin
+  m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -138,6 +138,8 @@ MonoBehaviour:
   range: 10
   damage: 1
   attackDelay: 0.5
+  displayHP: {fileID: 0}
+  displayGameOver: {fileID: 0}
 --- !u!95 &6748152942410331032
 Animator:
   serializedVersion: 3

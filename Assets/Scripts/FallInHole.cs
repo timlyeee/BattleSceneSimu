@@ -20,7 +20,7 @@ public class FallInHole : MonoBehaviour
         // Manage characters that are falling:
         for (int i = 0; i < characterFallingTimes.Count; ++i) {
             if (characterFallingTimes[i] <= 0.0f) {
-                Destroy(charactersFalling[i]); // delete after fall time
+                if (charactersFalling[i] != null) charactersFalling[i].GetComponent<CharacterCombat>().hitPoints = 0;
                 charactersFalling[i] = null;
             } else {
                 // fall effect:

@@ -14,6 +14,9 @@ public class CharacterCombat : MonoBehaviour
     public float attackDelay = 0.5f;
     private float nextAttackIn = 0.0f;
 
+    public UnityEngine.UI.Text displayHP;
+    public UnityEngine.UI.Text displayGameOver;
+
     private Dictionary<string, Vector2> DirectionnalStrikeOffsets = new Dictionary<string, Vector2>();
 
     void Start()
@@ -28,10 +31,22 @@ public class CharacterCombat : MonoBehaviour
     void Update()
     {
         if (hitPoints <= 0) {
+            if (displayGameOver) {
+                // display end of game message; set agents to idle
+                displayGameOver.text = "Game Over :(";
+
+                GameObject[] enemies = GameObject.FindGameObjectsWithTag("enemy");
+                foreach (GameObject enemy in enemies) {
+                    PlayerDetect pldt = enemy.GetComponent<PlayerDetect>();
+                    pldt.idle();
+                    pldt.movementSpeed = 0.0f;
+                }
+            }
             Destroy(gameObject);
         }
         if (hitPoints != oldValue) {
             Debug.Log("i have " + hitPoints + "hp left");
+            if (displayHP) displayHP.text = hitPoints + " HP";
             oldValue = hitPoints;
         }
     }
@@ -51,9 +66,9 @@ public class CharacterCombat : MonoBehaviour
             foreach (Collider2D hit in objectsHit(offset)) {
                 if (!hit.isTrigger) { // don't use script triggers as hitboxes
                     hit.GetComponent<CharacterCombat>().hitPoints--;
-                    Vector3 knockBackDirection = (hit.transform.position - transform.position).normalized;
-                    Debug.Log(hit.name + " was pushed back: " + knockBackDirection);
-                    hit.transform.position += (knockBackDirection * 0.1f);
+                    //Vector3 knockBackDirection = (hit.transform.position - transform.position).normalized;
+                    //Debug.Log(hit.name + " was pushed back: " + knockBackDirection);
+                    //hit.transform.position += (knockBackDirection * 0.1f);
                 }
             } 
             nextAttackIn = attackDelay;

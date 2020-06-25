@@ -333,18 +333,21 @@ public class PlayerDetect : MonoBehaviour
 
     // --- animations ----------------------------------------------------------------
     private void walk () {
+        if (anim.GetBool("idle")) return;
         if (!anim.GetBool("walking")) anim.SetBool("walking", true);
         if (anim.GetBool("striking")) anim.SetBool("striking", false);
     }
 
     private void strike () {
+        if (anim.GetBool("idle")) return;
         if (anim.GetBool("walking")) anim.SetBool("walking", false);
         if (!anim.GetBool("striking")) anim.SetBool("striking", true);
     }
 
-    private void idle () {
+    public void idle () {
         if (anim.GetBool("walking")) anim.SetBool("walking", false);
         if (anim.GetBool("striking")) anim.SetBool("striking", false);
+        anim.SetBool("idle", true);
     }
 
     // --- basic pathfinding ----------------------------------------------------------
@@ -397,7 +400,7 @@ public class PlayerDetect : MonoBehaviour
             deviationTimeout -= Time.deltaTime;
         }
         
-        Vector3 altDirection = Quaternion.AngleAxis(90, deviationIsPositive ? Vector3.left : Vector3.right) * direction;
+        Vector3 altDirection = Quaternion.AngleAxis(90, deviationIsPositive ? Vector3.right : Vector3.left) * direction;
         float ratio = ((PerceptionRadius - obstacleCheck.distance) / PerceptionRadius);
         Vector3 newDirection = Vector3.Cross(direction * ratio, altDirection * (1 - ratio));
         // New direction is a mix of old direction and a 90 angle deviation from it.
